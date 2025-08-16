@@ -100,6 +100,7 @@ func _pointer(old any, oldToNewPtr map[uintptr]any) (any, error) {
 	}
 
 	new := New(t.Elem())
+	oldToNewPtr[v.Pointer()] = new.Interface()
 
 	newv, err := _deepCopy(v.Elem().Interface(), oldToNewPtr)
 	if err != nil {
@@ -109,7 +110,6 @@ func _pointer(old any, oldToNewPtr map[uintptr]any) (any, error) {
 	if newvv.IsValid() {
 		new.Elem().Set(newvv)
 	}
-	oldToNewPtr[v.Pointer()] = new.Interface()
 	return new.Interface(), nil
 }
 
