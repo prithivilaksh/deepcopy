@@ -62,3 +62,6 @@ The test suite includes cases for:
 ## License
 
 [MIT](LICENSE)
+
+## Reference
+https://github.com/barkimedes/go-deepcopy
